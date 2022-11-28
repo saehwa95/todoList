@@ -1,22 +1,24 @@
 import React from "react";
 import Header from "./components/Header";
+import CreateTodo from "./components/CreateTodo";
 import "./App.css";
 import styled from "styled-components";
+import TodoCard from "./components/TodoCard";
 
 const App = () => {
   return (
     <Wrapper>
       <Header />
+      <CreateTodo />
+      <TodoCard />
     </Wrapper>
   );
 };
 
 const Wrapper = styled.div`
-  width: 100vw;
-  min-height: 100vh;
-  border: 2px red solid;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 `;
 
 export default App;

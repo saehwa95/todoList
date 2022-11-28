@@ -1,0 +1,31 @@
+span {
+  font-weight: 600;
+  margin-right: 15px;
+}
+
+input {
+  width: 300px;
+  height: 30px;
+  border-radius: 10px;
+  border: 1px solid #808080;
+}
+
+.create-form{
+  display: flex;
+  align-items: center;
+}
+
+.title-box, .content-box {
+  margin-right: 30px;
+}
+
+.add-btn {
+  width: 150px;
+  height: 35px;
+  font-size: 18px;
+  font-weight: 600;
+  border: 2px solid #008080;
+  background-color: #008080;
+  color: white;
+  margin-left: 50px;
+}

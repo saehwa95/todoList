@@ -1,0 +1,35 @@
+.working {
+  font-size: 28px;
+}
+
+.todo-title {
+  font-size: 24px;
+  margin: 0 0 20px 20px;
+}
+
+.todo-content {
+  font-size: 16px;
+  font-weight: 400;
+  flex-direction: column;
+  margin: 0 0 20px 20px;
+}
+
+button {
+  gap: 10px;
+  border-radius: 10px;
+  width: 120px;
+  height: 35px;
+  font-size: 15px;
+  font-weight: 400;
+  background-color: white;
+  cursor: pointer;
+}
+
+.done-btn,
+.cancel-btn {
+  border: 2px solid green;
+}
+
+.delete-btn {
+  border: 2px solid red;
+}

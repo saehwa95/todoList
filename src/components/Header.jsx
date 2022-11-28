@@ -16,7 +16,7 @@ export default Header;
 
 const MainHeader = styled.div`
   height: 50px;
-  background-color: green;
+  background-color: #008080;
   display: flex;
   align-items: center;
   align-content: center;
@@ -25,5 +25,5 @@ const MainHeader = styled.div`
   font-weight: 600;
   color: white;
   width: 1200px;
-  border: 2px solid red;
+  margin-top: 20px;
 `;
