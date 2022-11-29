@@ -2,6 +2,12 @@
   font-size: 28px;
 }
 
+.cards-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 70px;
+}
+
 .todo-title {
   font-size: 24px;
   margin: 0 0 20px 20px;
@@ -10,7 +16,6 @@
 .todo-content {
   font-size: 16px;
   font-weight: 400;
-  flex-direction: column;
   margin: 0 0 20px 20px;
 }
 

@@ -9,7 +9,9 @@ const App = () => {
   const [todos, setTodos] = useState([
     { id: 1, title: "리액트", content: "컴포넌트에 대해 알아보자" },
   ]);
+
   const [title, setTitle] = useState("");
+
   const [content, setContent] = useState("");
 
   const addTodo = (e) => {
@@ -43,7 +45,7 @@ const App = () => {
       })
     );
   };
-  
+
   return (
     <Wrapper>
       <Header />
@@ -73,46 +75,59 @@ const App = () => {
         <div>
           <span className="working">Working📝</span>
         </div>
-        {todos.map((todo) =>
-          todo.isDone ? null : (
-            <CardBox key={todo.id}>
-              <ContentBox>
-                <span className="todo-title">{todo.title}</span>
-                <span className="todo-content">{todo.content}</span>
-                <ButtonBox>
-                  <button className="delete-btn" onClick={deleteTodo(todo.id)}>
-                    삭제하기
-                  </button>
-                  <button className="done-btn" onClick={doneTodo(todo.id)}>
-                    완료
-                  </button>
-                </ButtonBox>
-              </ContentBox>
-            </CardBox>
-          )
-        )}
+        <div className="cards-box">
+          {todos.map((todo) =>
+            todo.isDone ? null : (
+              <CardBox key={todo.id}>
+                <ContentBox>
+                  <span className="todo-title">{todo.title}</span>
+                  <span className="todo-content">{todo.content}</span>
+                  <ButtonBox>
+                    <button
+                      className="delete-btn"
+                      onClick={deleteTodo(todo.id)}
+                    >
+                      삭제하기
+                    </button>
+                    <button className="done-btn" onClick={doneTodo(todo.id)}>
+                      완료
+                    </button>
+                  </ButtonBox>
+                </ContentBox>
+              </CardBox>
+            )
+          )}
+        </div>
 
         <div>
           <span className="working">Done🌈</span>
         </div>
-        {todos.map((todo) => {
-          return todo.isDone ? (
-            <CardBox key={todo.id}>
-              <ContentBox>
-                <span className="todo-title">{todo.title}</span>
-                <span className="todo-content">{todo.content}</span>
-                <ButtonBox>
-                  <button className="delete-btn" onClick={deleteTodo(todo.id)}>
-                    삭제하기
-                  </button>
-                  <button className="cancel-btn" onClick={cancelTodo(todo.id)}>
-                    취소
-                  </button>
-                </ButtonBox>
-              </ContentBox>
-            </CardBox>
-          ) : null;
-        })}
+        <div className="cards-box">
+          {todos.map((todo) => {
+            return todo.isDone ? (
+              <CardBox key={todo.id}>
+                <ContentBox>
+                  <span className="todo-title">{todo.title}</span>
+                  <span className="todo-content">{todo.content}</span>
+                  <ButtonBox>
+                    <button
+                      className="delete-btn"
+                      onClick={deleteTodo(todo.id)}
+                    >
+                      삭제하기
+                    </button>
+                    <button
+                      className="cancel-btn"
+                      onClick={cancelTodo(todo.id)}
+                    >
+                      취소
+                    </button>
+                  </ButtonBox>
+                </ContentBox>
+              </CardBox>
+            ) : null;
+          })}
+        </div>
       </CardContainer>
     </Wrapper>
   );
