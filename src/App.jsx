@@ -10,29 +10,32 @@ const App = () => {
     { id: 1, title: "리액트", content: "컴포넌트에 대해 알아보자" },
   ]);
 
-  const [title, setTitle] = useState("");
+  const [input, setInput] = useState({ title: "", content: "" });
 
-  const [content, setContent] = useState("");
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+
+    setInput({ ...input, [name]: value }); // dynamic object property
+  };
 
   const addTodo = (e) => {
     e.preventDefault();
     const newTodo = {
       id: todos.length + 1,
-      title,
-      content,
+      ...input,
       isDone: false,
     };
     setTodos([...todos, newTodo]);
-    e.target[0].value = "";
-    e.target[1].value = "";
+
+    setInput({ title: "", content: "" });
   };
 
-  const deleteTodo = (id) => () => {
+  const deleteTodo = (id) => {
     const newTodoList = todos.filter((todo) => todo.id !== id);
     setTodos(newTodoList);
   };
 
-  const doneTodo = (id) => () => {
+  const doneTodo = (id) => {
     setTodos(
       todos.map((todo) => {
         return todo.id === id ? { ...todo, isDone: !todo.isDone } : todo;
@@ -40,7 +43,7 @@ const App = () => {
     );
   };
 
-  const cancelTodo = (id) => () => {
+  const cancelTodo = (id) => {
     setTodos(
       todos.map((todo) => {
         return todo.id === id ? { ...todo, isDone: !todo.isDone } : todo;
@@ -56,13 +59,17 @@ const App = () => {
           <div className="title-box">
             <label>
               <span>제목</span>
-              <input onChange={(e) => setTitle(e.target.value)} />
+              <input onChange={handleInput} value={input.title} name="title" />
             </label>
           </div>
           <div className="content-box">
             <label>
               <span>내용</span>
-              <input onChange={(e) => setContent(e.target.value)} />
+              <input
+                onChange={handleInput}
+                value={input.content}
+                name="content"
+              />
             </label>
           </div>
           <button className="add-btn" type="submit">
@@ -84,11 +91,14 @@ const App = () => {
                   <ButtonBox>
                     <button
                       className="delete-btn"
-                      onClick={deleteTodo(todo.id)}
+                      onClick={() => deleteTodo(todo.id)}
                     >
                       삭제하기
                     </button>
-                    <button className="done-btn" onClick={doneTodo(todo.id)}>
+                    <button
+                      className="done-btn"
+                      onClick={() => doneTodo(todo.id)}
+                    >
                       완료
                     </button>
                   </ButtonBox>
@@ -111,13 +121,13 @@ const App = () => {
                   <ButtonBox>
                     <button
                       className="delete-btn"
-                      onClick={deleteTodo(todo.id)}
+                      onClick={() => deleteTodo(todo.id)}
                     >
                       삭제하기
                     </button>
                     <button
                       className="cancel-btn"
-                      onClick={cancelTodo(todo.id)}
+                      onClick={() => cancelTodo(todo.id)}
                     >
                       취소
                     </button>
