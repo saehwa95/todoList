@@ -23,6 +23,8 @@ const App = () => {
       isDone: false,
     };
     setTodos([...todos, newTodo]);
+    e.target[0].value = "";
+    e.target[1].value = "";
   };
 
   const deleteTodo = (id) => () => {
@@ -54,16 +56,13 @@ const App = () => {
           <div className="title-box">
             <label>
               <span>제목</span>
-              <input value={title} onChange={(e) => setTitle(e.target.value)} />
+              <input onChange={(e) => setTitle(e.target.value)} />
             </label>
           </div>
           <div className="content-box">
             <label>
               <span>내용</span>
-              <input
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-              />
+              <input onChange={(e) => setContent(e.target.value)} />
             </label>
           </div>
           <button className="add-btn" type="submit">
